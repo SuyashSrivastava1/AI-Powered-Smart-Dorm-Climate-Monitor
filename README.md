@@ -4,7 +4,7 @@
 ![Hardware](https://img.shields.io/badge/Hardware-ESP32-blue)
 ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB)
 
-The Dorm Climate Monitor is an Interdisciplinary Project (IDP) designed to monitor environmental conditions in shared dormitory rooms. It provides real-time tracking of temperature, humidity, and air quality across multiple zones (e.g., individual beds) using a distributed network of low-cost ESP32 sensor nodes.
+The Dorm Climate Monitor is an Innovative Design Project (IDP) designed to monitor environmental conditions in shared dormitory rooms. It provides real-time tracking of temperature, humidity, and air quality across multiple zones (e.g., individual beds) using a distributed network of low-cost ESP32 sensor nodes.
 
 ## System Overview
 
