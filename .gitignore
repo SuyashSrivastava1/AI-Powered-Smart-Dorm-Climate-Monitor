@@ -1,0 +1,40 @@
+# Node modules
+node_modules/
+software/node_modules/
+
+# Build artifacts
+dist/
+software/dist/
+build/
+
+# Vite/React caches
+.vite/
+.eslintcache
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Arduino/PlatformIO build output
+firmware/**/build/
+firmware/**/.pio/
+*.hex
+*.elf
+*.bin
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.swp
+*.swo
