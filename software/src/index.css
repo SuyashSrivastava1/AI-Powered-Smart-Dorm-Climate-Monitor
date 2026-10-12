@@ -3,6 +3,51 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply antialiased selection:bg-pink-100 selection:text-pink-900 text-slate-800 bg-[#faf8f5];
+    font-family: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
   }
+
+  /* Chic elegant pastel scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #faf8f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #fbcfe8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f472b6;
+  }
+}
+
+/* Tasteful, airy micro-pattern in soft blush & soft butter */
+.bg-cutesy-grid {
+  background-color: #faf8f5;
+  background-image: 
+    radial-gradient(rgba(244, 114, 182, 0.08) 1.2px, transparent 1.2px),
+    radial-gradient(rgba(250, 204, 21, 0.08) 1.2px, transparent 1.2px);
+  background-size: 26px 26px, 26px 26px;
+  background-position: 0 0, 13px 13px;
+}
+
+/* Elegant frosted cards with soft blush & butter borders */
+.cutesy-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  border: 1px solid #fce7f3;
+  box-shadow: 0 4px 20px -2px rgba(251, 207, 232, 0.12), 0 2px 6px -1px rgba(254, 240, 138, 0.08);
+}
+
+.cutesy-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cutesy-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -2px rgba(251, 207, 232, 0.2), 0 4px 10px -1px rgba(254, 240, 138, 0.12);
+  border-color: #fbcfe8;
 }

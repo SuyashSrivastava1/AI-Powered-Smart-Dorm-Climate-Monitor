@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 const generateMockData = (prev) => {
   const deltaTemp = (Math.random() - 0.5) * 0.5;
@@ -13,23 +13,24 @@ const generateMockData = (prev) => {
   };
 };
 
-export const useSensorData = (url, isTopBunk) => {
-  const [data, setData] = useState(null);
-  const [history, setHistory] = useState([]);
-  const [isSimulating, setIsSimulating] = useState(false);
-  const [error, setError] = useState(null);
+const createInitialHistory = () => {
+  const initHistory = [];
+  let current = generateMockData(null);
+  for (let i = 0; i < 20; i++) {
+    initHistory.unshift({ ...current, timestamp: new Date(Date.now() - i * 3000).toISOString() });
+    current = generateMockData(current);
+  }
+  return initHistory;
+};
 
-  // Initialize with some fake history if simulating
-  useEffect(() => {
-    const initHistory = [];
-    let current = generateMockData(null);
-    for (let i = 0; i < 20; i++) {
-      initHistory.unshift({ ...current, timestamp: new Date(Date.now() - i * 3000).toISOString() });
-      current = generateMockData(current);
-    }
-    setHistory(initHistory);
-    setData(initHistory[initHistory.length - 1]);
-  }, []);
+export const useSensorData = (url, _isTopBunk) => {
+  const [history, setHistory] = useState(() => createInitialHistory());
+  const [data, setData] = useState(() => {
+    const init = createInitialHistory();
+    return init[init.length - 1];
+  });
+  const [isSimulating, setIsSimulating] = useState(!url);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let interval;
@@ -75,7 +76,6 @@ export const useSensorData = (url, isTopBunk) => {
     };
 
     interval = setInterval(fetchData, 3000);
-    // Fetch immediately on mount or url change
     fetchData();
 
     return () => clearInterval(interval);
